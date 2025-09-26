@@ -133,8 +133,14 @@ function Local({ modePath }: LocalProps) {
         >
           <div className="flex h-screen w-screen items-center justify-center">
             <div className="bg-muted border-primary/60 mx-auto space-y-2 rounded-xl border border-dashed py-12 px-12 drop-shadow-md">
+              {/*
               <div className="flex items-center justify-center">
                 <Icons.OHIFLogoColorDarkBackground className="h-18" />
+              </div>
+              */}
+              <div className="flex items-center justify-center">
+                <img src="/logo_viewer.png" alt="Logo Viewer" className="mr-2" style={{ width: 30, height: 30, objectFit: 'contain' }} />
+                <span className="text-white text-xl">Visualizador de imagenes médicas</span>
               </div>
               <div className="space-y-2 py-6 text-center">
                 {dropInitiated ? (
@@ -144,19 +150,19 @@ function Local({ modePath }: LocalProps) {
                 ) : (
                   <div className="space-y-2">
                     <p className="text-primary pt-0 text-xl">
-                      Drag and drop your DICOM files & folders here <br />
-                      to load them locally.
+                      Arrastre y suelte sus archivos y carpetas DICOM aquí <br />
+                      para cargarlos localmente.
                     </p>
                     <p className="text-muted-foreground text-base">
-                      Note: Your data remains locally within your browser
-                      <br /> and is never uploaded to any server.
+                      Nota: Sus datos permanecen localmente en su navegador<br />
+                      y nunca se suben a ningún servidor.
                     </p>
                   </div>
                 )}
               </div>
               <div className="flex justify-center gap-2 pt-4">
-                {getLoadButton(onDrop, 'Load files', false)}
-                {getLoadButton(onDrop, 'Load folders', true)}
+                {getLoadButton(onDrop, 'Cargar archivos', false)}
+                {getLoadButton(onDrop, 'Cargar carpeta', true)}
               </div>
             </div>
           </div>

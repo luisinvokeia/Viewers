@@ -61,6 +61,7 @@ function Header({
         {...props}
       >
         <div className="relative h-[48px] items-center">
+          {/*
           <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center">
             <div
               className={classNames(
@@ -74,6 +75,24 @@ function Header({
               <div className="ml-1">
                 {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Icons.OHIFLogo />}
               </div>
+            </div>
+          </div>
+          */}
+
+          <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center">
+            <div
+              className={classNames('mr-3 inline-flex items-center', isReturnEnabled && 'cursor-pointer')}
+              onClick={onClickReturn}
+              data-cy="return-to-work-list"
+              role={isReturnEnabled ? 'button' : undefined}
+              tabIndex={isReturnEnabled ? 0 : undefined}
+              onKeyPress={(e) => {
+                if (isReturnEnabled && (e.key === 'Enter' || e.key === ' ')) onClickReturn();
+              }}
+            >
+              {isReturnEnabled && <Icons.ArrowLeft className="text-primary ml-1 h-7 w-7" />}
+                  <img src="/logo_viewer.png" alt="Logo Viewer" style={{ width: 30, height: 30, objectFit: 'contain', backgroundColor: 'transparent' }} className="ml-1 mr-2" />
+              <div className="text-white">Visualizador de imagenes médicas</div>
             </div>
           </div>
           <div className="absolute top-1/2 left-[250px] h-8 -translate-y-1/2">{Secondary}</div>
