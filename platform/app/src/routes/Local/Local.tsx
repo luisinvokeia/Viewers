@@ -139,8 +139,8 @@ function Local({ modePath }: LocalProps) {
               </div>
               */}
               <div className="flex items-center justify-center">
-                <img src="/logo_viewer.png" alt="Logo Viewer" className="mr-2" style={{ width: 30, height: 30, objectFit: 'contain' }} />
-                <span className="text-white text-xl">Visualizador de imagenes médicas</span>
+                {/* <img src="/logo_viewer.png" alt="Logo Viewer" className="mr-2" style={{ width: 30, height: 30, objectFit: 'contain' }} /> */}
+                <span className="text-white text-xl">Visualizador Imagenes DICOM</span>
               </div>
               <div className="space-y-2 py-6 text-center">
                 {dropInitiated ? (

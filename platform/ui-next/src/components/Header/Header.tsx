@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
+import { useLocation } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -51,6 +52,9 @@ function Header({
     }
   };
 
+  const location = useLocation();
+  const isWorklistView = location?.pathname === '/' || location?.pathname?.includes('worklist');
+
   return (
     <IconPresentationProvider
       size="large"
@@ -91,8 +95,8 @@ function Header({
               }}
             >
               {isReturnEnabled && <Icons.ArrowLeft className="text-primary ml-1 h-7 w-7" />}
-                  <img src="/logo_viewer.png" alt="Logo Viewer" style={{ width: 30, height: 30, objectFit: 'contain', backgroundColor: 'transparent' }} className="ml-1 mr-2" />
-              <div className="text-white">Visualizador de imagenes médicas</div>
+                  {/* <img src="/logo_viewer.png" alt="Logo Viewer" style={{ width: 30, height: 30, objectFit: 'contain', backgroundColor: 'transparent' }} className="ml-1 mr-2" /> */}
+              <div className={classNames('text-white', isWorklistView && 'ml-4')}>Visualizador Imagenes DICOM</div>
             </div>
           </div>
           <div className="absolute top-1/2 left-[250px] h-8 -translate-y-1/2">{Secondary}</div>
